@@ -1,23 +1,25 @@
 <template>
-  <div class="wrapper">
-    <header class="wrapper__header">
-      <Select :department="department" @changeDepartment="changeDepartment" />
-      <Search @changeSearch="changeSearch" :search="search" />
-    </header>
-    <section class="wrapper__cards" v-if="filteredData.length != 0">
-      <Card v-for="item in filteredData" :key="item.name" :item="item" />
-    </section>
-    <div v-else class="wrapper__no-records">
-      <p>No records to show</p>
+  <div id="app">
+    <div class="wrapper">
+      <header class="wrapper__header">
+        <Select :department="department" @changeDepartment="changeDepartment" />
+        <Search @changeSearch="changeSearch" :search="search" />
+      </header>
+      <section class="wrapper__cards" v-if="filteredData.length != 0">
+        <Card v-for="item in filteredData" :key="item.name" :item="item" />
+      </section>
+      <div v-else class="wrapper__no-records">
+        <p>No records to show</p>
+      </div>
+      <footer class="wrapper__footer">
+        <Pagination
+          @changePage="changePage"
+          :initialPage="currentPage"
+          :perPage="perPage"
+          :totalPage="totalPage"
+        />
+      </footer>
     </div>
-    <footer class="wrapper__footer">
-      <Pagination
-        @changePage="changePage"
-        :initialPage="currentPage"
-        :perPage="perPage"
-        :totalPage="totalPage"
-      />
-    </footer>
   </div>
 </template>
 
