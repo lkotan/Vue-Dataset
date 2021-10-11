@@ -20,20 +20,27 @@ body {
 
 /* WRAPPER */
 .wrapper {
-    margin: 5rem 15rem;
-    padding: 2rem 3rem;
+    margin: 5rem 8rem;
+    padding: 2rem 1rem;
     font-size: 2rem;
     border-radius: 1.4rem;
     background: var(--white);
 }
 .wrapper__header {
-    margin-left: 1rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+.wrapper__title{
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    text-shadow: 0.1rem 0 0.1rem var(--green-600);
+    color: var(--green-600);
 }
 .wrapper__cards {
     margin: 3rem 0;
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 .wrapper__no-records {
@@ -63,9 +70,9 @@ body {
 
 /*  CARDS */
 .card {
-    flex-basis: 30%;
+    /* width: calc(29% - 1rem); */
+    width: 30%;
     margin-top: 1.5rem;
-    margin-left: 1rem;
     padding: 1rem;
     border: 0.1rem solid var(--grey-100);
     border-radius: 0.4rem;
@@ -80,7 +87,8 @@ body {
 .card__content p {
     margin: 0.8rem 0 0 0;
     font-size: 1.7rem;
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.1rem;
+    word-break: break-word;
 }
 .card__content span {
     font-size: 1.4rem;
@@ -123,16 +131,21 @@ body {
     box-shadow: 0.1rem 0.1rem 0.1rem var(--green-400);
 }
 
+/* SELECT, SEARCH INPUT */
+select,
+input {
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid var(--grey-600);
+    border-radius: 0.8rem;
+    padding: 0.6rem 0.8rem;
+    letter-spacing: 0.1rem;
+}
+
 /* SELECT */
 select {
-    flex-basis: 30%;
-    padding: 0.6rem;
     font-weight: 700;
-    letter-spacing: 0.1rem;
     cursor: pointer;
-    outline: none;
-    border: 1px solid grey-600;
-    border-radius: 0.8rem;
 }
 option {
     font-size: 1.6rem;
@@ -143,12 +156,7 @@ option {
 
 /* SEARCH INPUT */
 input {
-    flex-basis: 40%;
-    padding: 0.4rem 0.8rem;
-    border: 1px solid var(--grey-600);
-    border-radius: 0.6rem;
     font-size: 1.8rem;
-    outline: none;
 }
 
 /* PAGINATION */
@@ -169,4 +177,53 @@ button {
     border: 0.1rem solid var(--green-400);
     color: var(--white);
     background: var(--green-400);
+}
+
+@media (max-width: 1200px) {
+    .card h3 {
+        font-size: 1.6rem;
+    }
+    .card__content p {
+        letter-spacing: 0;
+    }
+}
+@media (max-width: 992px) {
+    .card {
+        width:43%;
+    }
+    .wrapper__header {
+        flex-direction: column;
+    }
+    .wrapper__title{
+        order: -1;
+    }
+    input,
+    select{
+        width: 50%;
+    }
+    select {
+        margin-bottom: 1rem;
+    }
+}
+@media (max-width: 778px) {
+    .card__badge {
+        width: 1.2rem;
+        height: 1.2rem;
+        padding: 0.6rem;
+        font-size: 1.2rem;
+    }
+    input,
+    select{
+        width: 100%;
+    }
+}
+@media (max-width: 596px) {
+    .card {
+        width: 100%;
+    }
+    .card h3 {
+        margin-left: 0.6rem;
+        font-size: 1.4rem;
+        letter-spacing: unset;
+    }
 }

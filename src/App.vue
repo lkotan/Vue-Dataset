@@ -3,6 +3,7 @@
     <div class="wrapper">
       <header class="wrapper__header">
         <Select :department="department" @changeDepartment="changeDepartment" />
+        <h3 class="wrapper__title">Vue Dataset</h3>
         <Search @changeSearch="changeSearch" :search="search" />
       </header>
       <section class="wrapper__cards" v-if="filteredData.length != 0">
